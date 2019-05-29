@@ -9,5 +9,6 @@ public interface EmployeeService {
 	Employee save(Employee employee);
 
 	List<Employee> fetchAll();
+	Employee fetchEmployee(Employee employee);
 
 }

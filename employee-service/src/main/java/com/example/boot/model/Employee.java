@@ -1,10 +1,16 @@
 package com.example.boot.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -15,6 +21,30 @@ public class Employee {
 	private String name;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
+	
+
+	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
+	List<Telephone> telephones;
+	 
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "employee_project",
+	joinColumns = @JoinColumn(name="eid",referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn(name="pid", referencedColumnName = "id"))
+	List<Project> projects;
+
+	
+	public List<Telephone> getTelephones() {
+		return telephones;
+	}
+	public void setTelephones(List<Telephone> telephones) {
+		this.telephones = telephones;
+	}
+	public List<Project> getProjects() {
+		return projects;
+	}
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
 	public Integer getId() {
 		return id;
 	}
