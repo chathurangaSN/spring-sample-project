@@ -39,5 +39,11 @@ public class AllocationController {
         return ResponseEntity.ok(allocation.get());
         }
     }
+	@RequestMapping(value ="/employee/{id}", method = RequestMethod.GET)
+	public List<Allocation> fetchAllStocks(@PathVariable Integer id){
+		return allocationService.findAllocationByEmpId(id);
+	}
+	
+	
 
 }

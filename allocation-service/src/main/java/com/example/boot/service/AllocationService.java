@@ -12,5 +12,7 @@ public interface AllocationService {
 	List<Allocation> fetchAll();
 	
 	Optional<Allocation> findAllocationById(Integer id);
+	
+	List<Allocation> findAllocationByEmpId(Integer id);
 
 }

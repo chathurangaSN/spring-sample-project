@@ -9,3 +9,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create #none
+  
+security:
+  oauth2:  
+    resource:
+      token-info-uri: http://localhost:8082/oauth/check_token
+    client: 
+      client-id: web
+      client-secret: web

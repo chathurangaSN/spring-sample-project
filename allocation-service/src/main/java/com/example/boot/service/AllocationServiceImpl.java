@@ -38,5 +38,8 @@ public class AllocationServiceImpl implements AllocationService {
 	public Optional<Allocation> findAllocationById(Integer id) {
         return allocationRepository.findById(id);
     }
+	public List<Allocation> findAllocationByEmpId(Integer id){
+		return allocationRepository.findByEmpId(id);
+	}
 
 }
