@@ -10,3 +10,14 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
+
+security:
+  oauth2:  
+    resource:
+      token-info-uri: http://localhost:8082/oauth/check_token
+    client: 
+      client-id: web
+      client-secret: web
+
+server:
+  port: 8081

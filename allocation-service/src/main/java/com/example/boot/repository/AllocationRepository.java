@@ -8,5 +8,5 @@ import com.example.boot.model.Allocation;
 
 public interface AllocationRepository extends JpaRepository<Allocation, Integer> {
 	
-	List<Allocation> findByEmpId(Integer id);
+	List<Allocation> findByEmpId(Integer empid);
 }

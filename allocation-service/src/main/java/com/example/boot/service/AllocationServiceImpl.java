@@ -16,20 +16,12 @@ public class AllocationServiceImpl implements AllocationService {
 	@Autowired
 	AllocationRepository allocationRepository;
 
-	
-	/* (non-Javadoc)
-	 * @see com.example.boot.service.AllocationService#save(com.example.boot.model.Allocation)
-	 */
 	@Override
 	public Allocation save(Allocation allocation){
 		
 		return allocationRepository.save(allocation);
 	}
-	
-	
-	/* (non-Javadoc)
-	 * @see com.example.boot.service.AllocationService#fetchAll()
-	 */
+
 	@Override
 	public List<Allocation> fetchAll(){
 		return allocationRepository.findAll();
@@ -41,5 +33,9 @@ public class AllocationServiceImpl implements AllocationService {
 	public List<Allocation> findAllocationByEmpId(Integer id){
 		return allocationRepository.findByEmpId(id);
 	}
+	
+    public List<Allocation> findByEmployeeId(Integer empId) {
+        return allocationRepository.findByEmpId(empId);
+    }
 
 }

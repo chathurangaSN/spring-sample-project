@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.boot.model.Allocation;
+import com.example.boot.model.EmployeeAllocation;
 import com.example.boot.service.AllocationService;
 
 @RestController
@@ -43,6 +45,12 @@ public class AllocationController {
 	public List<Allocation> fetchAllStocks(@PathVariable Integer id){
 		return allocationService.findAllocationByEmpId(id);
 	}
+    @GetMapping("/allocation/employee/{empId}")
+    public ResponseEntity<EmployeeAllocation> fetchByEmployeeId(@PathVariable Integer empId) {
+        EmployeeAllocation employeeAllocation = new EmployeeAllocation();
+        employeeAllocation.setEmployeeAllocations(allocationService.findByEmployeeId(empId));
+        return ResponseEntity.ok(employeeAllocation);
+    }
 	
 	
 

@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Employee {
@@ -31,8 +32,16 @@ public class Employee {
 	joinColumns = @JoinColumn(name="eid",referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="pid", referencedColumnName = "id"))
 	List<Project> projects;
-
 	
+	@Transient
+    EmployeeAllocation allocations;
+	
+	public EmployeeAllocation getAllocations() {
+		return allocations;
+	}
+	public void setAllocations(EmployeeAllocation allocations) {
+		this.allocations = allocations;
+	}
 	public List<Telephone> getTelephones() {
 		return telephones;
 	}

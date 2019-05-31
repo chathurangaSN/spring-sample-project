@@ -14,5 +14,7 @@ public interface AllocationService {
 	Optional<Allocation> findAllocationById(Integer id);
 	
 	List<Allocation> findAllocationByEmpId(Integer id);
+	
+	List<Allocation> findByEmployeeId(Integer empId);
 
 }
