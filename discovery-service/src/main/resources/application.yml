@@ -5,7 +5,5 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-  datacenter: CMB-SL
-  environment: production
-      
+ 
       

@@ -53,7 +53,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
             ResponseEntity<EmployeeAllocation> responseEntity;
             HttpEntity<String> entity = new HttpEntity<>("", httpHeaders);
-            responseEntity = restTemplate.exchange("http://localhost:8081/allocationcloud/allocation/employee/".concat(employee.getId().toString()), HttpMethod.GET, entity, EmployeeAllocation.class);
+            responseEntity = restTemplate.exchange("http://allocation-service/allocationcloud/allocation/employee/".concat(employee.getId().toString()), HttpMethod.GET, entity, EmployeeAllocation.class);
             Employee employee1 = optionalEmployee.get();
 //            System.out.println(responseEntity.getBody().getEmpId()+">>>>>>>>>");
             employee1.setAllocations(responseEntity.getBody());

@@ -19,5 +19,3 @@ security:
       client-id: web
       client-secret: web
 
-server:
-  port: 8081

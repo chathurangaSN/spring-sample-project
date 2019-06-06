@@ -11,4 +11,4 @@ eureka:
     hostname: localhost 
     
 server:
-  port: 0
+  port: 8080

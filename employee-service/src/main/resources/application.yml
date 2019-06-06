@@ -8,7 +8,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create #none
+      ddl-auto: none
   
 security:
   oauth2:  
